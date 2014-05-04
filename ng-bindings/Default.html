@@ -4,6 +4,8 @@
         <title>Test page</title>
         <script type="text/javascript" src="scripts/angular.js"></script>
         <script type="text/javascript">
+            // TODO define ngBindingApp
+
             function Controller($scope) {
                 $scope.Counter = 0;
 
@@ -18,7 +20,7 @@
             }
         </script>
     </head>
-    <body>
+    <body data-ng-app="ngBindingApp">
         <div>
             <div data-ng-controller="Controller">
                 <div>
