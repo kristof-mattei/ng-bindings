@@ -4,33 +4,38 @@
         <title>Test page</title>
         <script type="text/javascript" src="scripts/angular.js"></script>
         <script type="text/javascript">
-            // TODO define ngBindingApp
+            (function() {
+                "use strict";
+                var app = angular.module("ngBindingApp", []);
 
-            function Controller($scope) {
-                $scope.Counter = 0;
-
-                /// test
-                $scope.Increase = function() {
-                    $scope.Counter++;
-                };
-
-                $scope.Reset = function() {
+                app.controller("mainController", ["$scope", function ($scope) {
                     $scope.Counter = 0;
-                };
-            }
+
+                    /// test
+                    $scope.Increase = function() {
+                        $scope.Counter++;
+                    };
+
+                    $scope.Reset = function() {
+                        $scope.Counter = 0;
+                    };
+                }]);
+            })();
         </script>
     </head>
     <body data-ng-app="ngBindingApp">
         <div>
-            <div data-ng-controller="Controller">
+            <div data-ng-controller="mainController">
                 <div>
                     <button data-ng-click="Increase()">Increase</button>
                     <button data-ng-click="Reset()">Reset</button>
-                </div>     
-                <div style="width:200px; border:10px solid red; text-align:center; vertical-align:middle;">
+                </div>
+                <div style="width: 200px; border: 10px solid red; text-align: center; vertical-align: middle;">
                     <span>{{Counter}}</span>
                 </div>
             </div>
         </div>
     </body>
+
+
 </html>
